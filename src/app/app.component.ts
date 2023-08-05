@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Tienda';
+  name = 'Tienda';
+  edad = 18;
+  img = "https://www.uplers.com/wp-content/uploads/2022/05/AngularJs-Frameworks.jpg"
 }
