@@ -1,9 +1,38 @@
+<h1>ng Model</h1>
+<p>Nombre {{persona.nombre}}</p>
+<br>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="persona.nombre" /><br>
+<p>valid {{nameInput.valid}} </p>
+
+<p>Edad {{persona.age}}</p>
+<input type="number" max="18" min="10" required #ageInput="ngModel"
+[(ngModel)]="persona.age" />
+<p>valid {{ageInput.valid}} </p>
+
+<hr>
+<h1>Event Binding</h1>
+<button [disabled]="btn">enviar</button><br>
+<button (click)="toggleButton()">Activar</button>
+<p>Edad {{ persona.age}}</p>
+<button (click)="ageUp()">Age ++</button>
+<div class="box" (scroll)="onScroll($event)">
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores maxime laborum assumenda perspiciatis rem nemo eius dicta, libero provident deserunt beatae necessitatibus, possimus tempore excepturi itaque sint atque corporis aliquam!, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores maxime laborum assumenda perspiciatis rem nemo eius dicta, libero provident deserunt beatae necessitatibus, possimus tempore excepturi itaque sint atque corporis aliquam! </p>
+</div>
+<p>Nombre {{persona.nombre}}</p>
+
+<br>
+<input type="text" [value]="persona.nombre" (keyup)="changeName($event)" /><br>
+
+
+<hr>
+
+
 <h1>Propiedades</h1>
 <button [disabled]="btn">enviar</button><br>
 <input type="text" [value]="persona.nombre"/><br>
 <img width="500" [src]="persona.avatar">
 <hr>
-<h1>Eventos</h1>
+<h1></h1>
 <h1>Hola Mundo</h1>
 <h2>{{'Hello'.repeat(3)}}</h2>
 <p>3+3 = {{3+3}}</p>
