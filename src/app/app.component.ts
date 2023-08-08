@@ -17,6 +17,9 @@ export class AppComponent {
     avatar: 'https://pps.whatsapp.net/v/t61.24694-24/345356866_3402672116714511_8350754741430174530_n.jpg?ccb=11-4&oh=01_AdRkau8FbO82_lPQSVBQFpn5QPJDboIHAnrxfv2XkYEF0Q&oe=64DB8610'
   }
 
+  nombres: string[] = ['David', 'Orozco', 'Lopez']
+
+  nuevo= ''
 
   toggleButton() {
     this.btn = !this.btn;
@@ -34,9 +37,18 @@ export class AppComponent {
 
   changeName(event: Event) {
     const element = event.target as HTMLInputElement;
-    this.persona.nombre = element.value
+    this.persona.nombre = element.value;
   }
 
+  newName(){
+    this.nombres.push(this.nuevo);
+    this.nuevo = '';
+
+  }
+
+  delete(index: number){
+    this.nombres.splice(index, 1)
+  }
 
 }
 
