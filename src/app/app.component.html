@@ -1,6 +1,40 @@
+<h1>Formularios</h1>
+<form (ngSubmit)="onRegistrar()" #myform="ngForm">
+  <div class="input-group">
+    <label for="name">Nombre</label>
+    <input type="text" required name="nombre" id="name" [(ngModel)]="registrar.nombre">
+    <p>Mensaje de Error</p>
+  </div>
+  <div class="input-group">
+    <label for="email">Email</label>
+    <input type="email" required name="email" id="email" [(ngModel)]="registrar.email">
+    <p>Mensaje de Error</p>
+  </div>
+  <div class="input-group">
+    <label for="password">Password</label>
+    <input type="password" required name="password" id="password" [(ngModel)]="registrar.password">
+    <p>Mensaje de Error</p>
+  </div>
+  <button [disabled]="myform.invalid" type="submit">Registrar</button>
+</form>
+
+
+
+
+
+<h1>Class y Style</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="persona.nombre">
+<p class="message-error" [class.invalid]="nameInput2.invalid">Campo Requerido</p>
+
+<label>Nombre</label>
+<br><input type="text" required #nameInput3="ngModel" [(ngModel)]="persona.nombre">
+<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Texto</p>
+<hr>
+
 <h1>*ngFor</h1>
 <button (click)="newName()" >Agregar</button>
-<input type="text" required [(ngModel)]="nuevo">
+<input type="text"  required [(ngModel)]="nuevo">
+<p class="message-error" [class.active]="nameInput.invalid">Campo Requerido</p>
 <ul>
   <li *ngIf="nombres.length === 0"> No hay nombres</li>
   <li *ngFor="let name of nombres; index as i">
@@ -62,3 +96,42 @@
 <p>3+3 = {{3+3}}</p>
 <h3>Hola soy {{name}} y tengo {{ edad }}</h3>
 <img src={{img}} alt="image">
+
+
+<hr>
+<h1>Productos</h1>
+<div class="products--grid">
+  <div *ngFor="let producto of productos">
+    <img  [src]="producto.image">
+    <p>{{producto.name}}</p>
+    <h2>{{producto.price}}</h2>
+  </div>
+</div>
+
+
+<hr>
+<div [ngSwitch]="persona.nombre">
+  <p *ngSwitchCase="'azul'">
+      El color el Azul
+  </p>
+  <p *ngSwitchCase="'verde'">
+      El color el Verde
+  </p>
+  <p *ngSwitchCase="'rojo'">
+      El color el Rojo
+  </p>
+  <p *ngSwitchDefault>
+      No hay ningún color
+  </p>
+</div>
+
+<h1>NgClass & Ng style</h1>
+<input type="text" required #name="ngModel" [(ngModel)]="persona.nombre" />
+<hr class="line-error" [ngClass]="{
+  'valid': name.valid,
+  'invalid': name.invalid
+}"/>
+
+<p class="message-error" [class.invalid]="name">
+  Campo Requerido
+</p>
